@@ -8,16 +8,15 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class Mstm_User_Category_DAO {
+public class MstmUserCategoryDAO {
 	@PersistenceContext
 	EntityManager entityManager;
 	
-	public List<String> getUserCatCode() {
+	public List<UserCatResponseDTO> getUserCatCode() {
 		StringBuilder query = new StringBuilder();
-		query.append("SELECT code FROM Mstm_User_Category");
-//		query.append("ORDER BY id");
-		Query createNativeQuery = this.entityManager.createNativeQuery(query.toString());
-		List<String> result = (createNativeQuery).getResultList();
+		query.append("SELECT id, code FROM Mstm_User_Category ORDER BY id");
+		Query createNativeQuery = entityManager.createNativeQuery(query.toString(), "userCatMap");
+		List<UserCatResponseDTO> result = (createNativeQuery).getResultList();
 		return result;
 	}
 }

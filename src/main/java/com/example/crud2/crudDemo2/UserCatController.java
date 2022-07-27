@@ -40,13 +40,13 @@ public class UserCatController {
 	
     // RESTful API method for Create operation
 	@PostMapping("/usercats")
-	public void add(@RequestBody Mstm_User_Category_DTO userCatDTO) {
+	public void add(@RequestBody MstmUserCategoryDTO userCatDTO) {
 		catService.save(userCatDTO);
 	}
 	
     // RESTful API method for Update operation
 	@PutMapping("/usercats/{id}")
-	public ResponseEntity<?> update(@RequestBody Mstm_User_Category_DTO userCatDTO, @PathVariable Integer id) {
+	public ResponseEntity<?> update(@RequestBody MstmUserCategoryDTO userCatDTO, @PathVariable Integer id) {
 	    try {
 	        catService.update(userCatDTO, id);
 	        return new ResponseEntity<>(HttpStatus.OK);
@@ -62,7 +62,7 @@ public class UserCatController {
 	}
 	
 	@GetMapping("/usercats/query")
-	public List<String> retrieveQuery() {
+	public List<UserCatResponseDTO> retrieveQuery() {
 		return catService.getCodeQuery();
 	}
 

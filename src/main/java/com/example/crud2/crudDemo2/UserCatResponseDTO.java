@@ -6,12 +6,12 @@ import javax.persistence.SqlResultSetMapping;
 import javax.persistence.EntityResult;
 import javax.persistence.FieldResult;
 
-//@SqlResultSetMapping (name = "userCatMap", entities = {
-//		@EntityResult(entityClass = UserCatResponseDTO.class , fields = {
-//				@FieldResult(name = "id", column = "id"),
-//				@FieldResult(name = "userCatCode", column = "code"),
-//		}),
-//	})
+@SqlResultSetMapping (name = "userCatMap", entities = {
+		@EntityResult(entityClass = UserCatResponseDTO.class , fields = {
+				@FieldResult(name = "id", column = "id"),
+				@FieldResult(name = "userCatCode", column = "code"),
+		}),
+	})
 
 @Entity
 public class UserCatResponseDTO {

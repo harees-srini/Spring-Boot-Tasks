@@ -3,7 +3,7 @@ package com.example.crud2.crudDemo2;
 import java.io.Serializable;
 
 
-public class Mstm_User_Category_DTO implements Serializable{
+public class MstmUserCategoryDTO implements Serializable{
 	private String name;
 	private String code;
 	private String description;

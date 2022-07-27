@@ -15,17 +15,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class UserCatService {
 	  	@Autowired
 	    private UserCatRepository repo;
-	  	private Mstm_User_Category_DTO userCatDTO;
+	  	private MstmUserCategoryDTO userCatDTO;
 	  	@Autowired
-	  	private Mstm_User_Category_DAO userCatDAO;
-	  	
-	  	
+	  	private MstmUserCategoryDAO userCatDAO;
 	     
 	    public List<Mstm_User_Category> listAll() {
 	        return repo.findAll();
 	    }
 	     
-	    public void save(Mstm_User_Category_DTO userCatDTO) {
+	    public void save(MstmUserCategoryDTO userCatDTO) {
 	    	Mstm_User_Category entity = new Mstm_User_Category();
 	    	entity.setName(userCatDTO.getName());
 	    	entity.setCode(userCatDTO.getCode());
@@ -41,7 +39,7 @@ public class UserCatService {
 	        repo.deleteById(id);
 	    }
 	    
-		public ResponseEntity<?> update(@RequestBody Mstm_User_Category_DTO userCatDTO, @PathVariable Integer id) {
+		public ResponseEntity<?> update(@RequestBody MstmUserCategoryDTO userCatDTO, @PathVariable Integer id) {
 		    try {
 		    	Mstm_User_Category userCat = get(id);
 		        userCat.setName(userCatDTO.getName());
@@ -54,7 +52,7 @@ public class UserCatService {
 		    	}
 		}
 		
-		public List<String> getCodeQuery() {
+		public List<UserCatResponseDTO> getCodeQuery() {
 			return userCatDAO.getUserCatCode();
 			
 		}
