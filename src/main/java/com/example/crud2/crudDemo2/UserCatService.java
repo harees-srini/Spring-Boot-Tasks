@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Service
 @Transactional
 public class UserCatService {
+	
 	  	@Autowired
 	    private UserCatRepository repo;
 	  	private MstmUserCategoryDTO userCatDTO;
+	  	
 	  	@Autowired
 	  	private MstmUserCategoryDAO userCatDAO;
 	     

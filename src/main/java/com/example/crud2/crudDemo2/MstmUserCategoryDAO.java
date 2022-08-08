@@ -14,7 +14,8 @@ public class MstmUserCategoryDAO {
 	
 	public List<UserCatResponseDTO> getUserCatCode() {
 		StringBuilder query = new StringBuilder();
-		query.append("SELECT id, code FROM Mstm_User_Category ORDER BY id");
+		query.append("SELECT id, code FROM Mstm_User_Category");
+		query.append(" WHERE name = 'Reserved' ");
 		Query createNativeQuery = entityManager.createNativeQuery(query.toString(), "userCatMap");
 		List<UserCatResponseDTO> result = (createNativeQuery).getResultList();
 		return result;
